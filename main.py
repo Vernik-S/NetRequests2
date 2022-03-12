@@ -12,7 +12,7 @@ class YaUploader:
     def set_headers(self):
         self.headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'OAuth {}'.format(self.token)
+            'Authorization': f'OAuth {self.token}'
         }
 
     def get_href(self, yadisk_file_path):
@@ -22,7 +22,7 @@ class YaUploader:
         params = {"path": file_name, "overwrite": "true"}
         response = requests.get(url=href, headers=self.headers, params = params)
         res =  response.json()
-        print(res)
+        #print(res)
         self.upload_href = res["href"]
 
 
@@ -36,7 +36,7 @@ class YaUploader:
         # aaa = upload_file.read()
         #     print(aaa)
         response = requests.put(url=self.upload_href, data=open(file_path, 'rb'))
-        print(response.body)
+        #print(response.body)
 
 
 
