@@ -36,7 +36,7 @@ class YaUploader:
         # aaa = upload_file.read()
         #     print(aaa)
         response = requests.put(url=self.upload_href, data=open(file_path, 'rb'))
-        #print(response.body)
+        print(response.status_code)
 
 
 
